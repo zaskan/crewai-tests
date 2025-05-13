@@ -1,0 +1,11 @@
+{
+  "name": "My Dev Container",
+  "image": "localhost/crewai-ee:1.0",
+  "workspaceFolder": "/",
+  "postCreateCommand": "echo Dev container is ready!",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-vscode.cpptools"]
+    }
+  }
+}
