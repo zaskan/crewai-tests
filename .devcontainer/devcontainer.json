@@ -4,7 +4,7 @@
   "workspaceFolder": "/runner",
   "mounts": [
     "source=${localWorkspaceFolder},target=/runner,type=bind",
-    "source=${localEnv:HOME}/.ssh,target=/root/${localEnv:USER}/.ssh,type=bind"
+    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind"
   ],
   "runArgs": [
     "--security-opt=label=disable"
