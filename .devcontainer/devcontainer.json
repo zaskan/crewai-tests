@@ -3,7 +3,8 @@
   "image": "localhost/crewai-ee:1.0",
   "workspaceFolder": "/runner",
   "mounts": [
-    "source=${localWorkspaceFolder},target=/runner,type=bind"
+    "source=${localWorkspaceFolder},target=/runner,type=bind",
+    "source=${localEnv:HOME}/.ssh,target=/root/${localEnv:USER}/.ssh,type=bind"
   ],
   "runArgs": [
     "--security-opt=label=disable"
