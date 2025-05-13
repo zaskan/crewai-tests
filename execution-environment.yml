@@ -1,0 +1,23 @@
+version: 3
+images:
+  base_image:
+    name: quay.io/fedora/python-312:20250507
+dependencies:
+  python_interpreter:
+    package_system: python3.12
+  ansible_core:
+    package_pip: ansible-core==2.15.13
+  ansible_runner:
+    package_pip: ansible-runner==2.4.1
+  system:
+    - openssh-clients
+    - sshpass
+  galaxy:
+    collections:
+    - name: community.general
+additional_build_steps: 
+  append_final:
+    - RUN pip3.12 install openai==1.75.0
+    - RUN pip3.12 install crewai==0.119.0
+    - RUN pip3.12 install pydantic==2.11.4
+    - RUN pip3.12 install requests==2.32.3

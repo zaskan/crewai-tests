@@ -1,0 +1,4 @@
+openai
+crewai
+pydantic
+requests
