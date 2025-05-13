@@ -51,7 +51,6 @@ def explain_task_security(tasks, filename, playbook_purpose):
         response = client.chat.completions.create(
             model="gpt-4",
             messages=[{"role": "system", "content": prompt}]
-            context=[PlaybookContextAgent]
         )
 
         explanation = response.choices[0].message.content

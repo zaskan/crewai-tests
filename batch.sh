@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Python script to execute
-PYTHON_SCRIPT="playbook_analysis.py"
+PYTHON_SCRIPT="main.py"
 
 # Initialize variables
 total_score=0
