@@ -1,0 +1,24 @@
+file_reading:
+  description: "Read and parse Ansible playbook from {playbook_path}."
+  expected_output: "YAML data of the playbook."
+  agent: filereader
+  tool: read_playbook
+  arguments:
+    playbook_path: "{playbook_path}"
+
+purpose_analysis:
+  description: "Analyze the playbook's purpose using the loaded YAML data."
+  expected_output: "A message with a summary of the playbook's purpose based on the evidences found in the code."
+  agent: ansible_expert
+  context: [file_reading_task]
+
+security_analysis:
+  description: "Evaluate the playbook's security risks based on its purpose."
+  expected_output: "A security risk summary and a risk score (1-5) based on the facts found in the code."
+  agent: security_expert
+  context: [purpose_analysis_task]
+
+task_analysis:
+  description: "Analyze each playbook task for purpose and best practices. Output a markdown table with: File Name, Task, Purpose, Analysis Results (96 chars max), Risk score (1-5)"
+  expected_output: "Markdown table analysis based in the facts found in the code."
+  agent: ansible_expert
